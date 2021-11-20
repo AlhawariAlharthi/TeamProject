@@ -2,6 +2,7 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
+
 <style>
     body {
     font-family: "Lato", sans-serif;
@@ -78,10 +79,38 @@
     background-color: #000 !important;
     color: #fff;
 }
+.topnav {
+  overflow: hidden;
+  background-color: #000000;
+}
+
+.topnav a {
+  float: right;
+  padding: 50px;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-family: Montserrat, sans-serif;
+}
+
+.topnav a:hover {
+  background-color: #FFFFFF;
+  color: black;
+}
+
 </style>
+
+<div class="topnav">
+  <a href="./login.html">Log in</a>
+  <a href="./signup.html">Sign up</a>
+  <a href="./index.html">Home</a>
+</div>
+
 <div class="sidenav">
          <div class="login-main-text">
-            <h2>Application<br> Login Page</h2>
+            <h2> Login Page</h2>
             <p>Login or register from here to access.</p>
          </div>
       </div>
@@ -97,10 +126,9 @@
                      <label>Password</label>
                      <input type="password" class="form-control" placeholder="Password">
                   </div>
-                  <button type="submit" class="btn btn-black">Login</button>
-                  <button type="submit" class="btn btn-secondary">Sign Up</button>
+                  <button type="submit" class="btn btn-black" name ="login">Login</button>
+                  <a type="submit" class="btn btn-secondary" href= "signup.html">Sign Up</a>
                </form>
             </div>
          </div>
       </div>
-</div>
