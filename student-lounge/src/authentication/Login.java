@@ -51,35 +51,35 @@ public class Login extends HttpServlet {
 				String wronginput = "<div class=\"alert alert-warning\">\r\n"
 						+ "  <strong>Warning!</strong> You are in!.\r\n" + "</div>";
 				request.setAttribute("wronginput", wronginput);
-				RequestDispatcher rd = request.getRequestDispatcher("test.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("profile.jsp");
 				rd.forward(request, response);
 
 			} else if (username.equals("")) {
-				String wronginput = "<div class=\"alert alert-warning\">\r\n"
+				String wronginput = "<div class=\"text-right\" class=\"alert alert-warning\">\r\n"
 						+ "  <strong>Warning!</strong> Please Enter Username!.\r\n" + "</div>";
 				request.setAttribute("wronginput", wronginput);
-				RequestDispatcher rd = request.getRequestDispatcher("test.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 				rd.forward(request, response);
 
 			} else if (password.equals("")) {
 				String wronginput = "<div class=\"alert alert-warning\">\r\n"
 						+ "  <strong>Warning!</strong> Please Enter Password!.\r\n" + "</div>";
 				request.setAttribute("wronginput", wronginput);
-				RequestDispatcher rd = request.getRequestDispatcher("test.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 				rd.forward(request, response);
 
 			} else {
 				String wronginput = "<div class=\"alert alert-warning\">\r\n"
 						+ "  <strong>Warning!</strong> You entered wrong credetionals!.\r\n" + "</div>";
 				request.setAttribute("wronginput", wronginput);
-				RequestDispatcher rd = request.getRequestDispatcher("test.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 				rd.forward(request, response);
 			}
 		} catch (Exception e) {
 			String wronginput = "<div class=\"alert alert-warning\">\r\n"
 					+ "  <strong>Warning!</strong> You entered wrong credetionals!.\r\n" + "</div>";
 			request.setAttribute("wronginput", wronginput);
-			RequestDispatcher rd = request.getRequestDispatcher("test.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 			rd.forward(request, response);
 		}
 
