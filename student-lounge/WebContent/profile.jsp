@@ -35,7 +35,7 @@
 <style type="text/css">
 </style>
 
-<title>Insert title here</title>
+<title>Welcome back ${user}. </title>
 </head>
 <body>
 	${wronginput}
