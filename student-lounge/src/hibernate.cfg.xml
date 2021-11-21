@@ -7,9 +7,9 @@
 	    <!-- The dialect specifies the type of database used in hibernate so that hibernate generate appropriate type of SQL statements. -->
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="hibernate.connection.url">jdbc:mysql://{Your EC2 Server URL}:3306/{Your DB Name}</property>
-		<property name="hibernate.connection.username">{Your MySQL User ID}</property>
-		<property name="hibernate.connection.password">{Your Password}</property>
+		<property name="hibernate.connection.url">jdbc:mysql://ec2-18-223-184-253.us-east-2.compute.amazonaws.com:3306/StudentLounge</property>
+		<property name="hibernate.connection.username">student-loungeremote</property>
+		<property name="hibernate.connection.password">StudentL-1234</property>
 		<!-- you can create and update the table if it is not in DB. If create, it create new table everytime-->
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		<!-- True you will see sql in console -->
