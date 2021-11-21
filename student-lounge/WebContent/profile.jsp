@@ -35,7 +35,30 @@
 <style type="text/css">
 </style>
 
-<title>Welcome back ${user}. </title>
+<title>Welcome back ${user}</title>
+<link rel="stylesheet" href="homeStyle.css">
+<style>
+.topnav {
+	overflow: hidden;
+	background-color: #000000;
+}
+
+.topnav a {
+	float: right;
+	padding: 50px;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+	font-family: Montserrat, sans-serif;
+}
+
+.topnav a:hover {
+	background-color: #FFFFFF;
+	color: black;
+}
+</style>
 </head>
 <body>
 	${wronginput}
@@ -48,17 +71,32 @@
 			response.sendRedirect("index.html");
 		}
 	%>
+	<div class="topnav">
+
+		<a href="./booklist.html">Explore</a> <a href="./index.html">Home</a>
+		<a href="./Logout">Logout</a>
+		
+	</div>
 
 
-	<div class="container">
-		<h2>HR layout</h2>
-		<br>
-		<br>
-
+	<div class="jumbotron text-center">
+		<h1>Student Lounge</h1>
+		<p>Book Sharing</p>
+		<form>
+			<div class="input-group">
+				<input type="text" class="form-control" size="50"
+					placeholder="Search book" required>
+				<div class="input-group-btn">
+					<button type="button" class="btn btn-danger">Search</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="container" style="width: 90%;">
 		<ul class="nav nav-tabs">
-			<li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+			<li class="active"><a data-toggle="tab" href="#menu2">Manage Books</a></li>
 			<li><a data-toggle="tab" href="#menu1">Settings</a></li>
-			<li><a data-toggle="tab" href="#menu2">Manage Books</a></li>
+
 
 			<li>
 				<form action="Logout">
@@ -68,10 +106,6 @@
 		</ul>
 
 		<div class="tab-content">
-			<div id="home" class="tab-pane fade in active">
-				<h3>HOME</h3>
-				<p>Welcome back ${user}.</p>
-			</div>
 			<div id="menu1" class="tab-pane fade">
 				<h3>Change Password</h3>
 
@@ -99,7 +133,7 @@
 				</div>
 
 			</div>
-			
+
 			<div id="menu2" class="tab-pane fade">
 				<h3>Books Table</h3>
 				<p>Double click the remove button to remove any book.</p>
@@ -126,27 +160,28 @@
 							</div>
 							<div class="modal-body">
 
-								<div style="padding-top: 50px;padding-right: 30px;padding-bottom: 50px;padding-left: 30px;">
+								<div
+									style="padding-top: 50px; padding-right: 30px; padding-bottom: 50px; padding-left: 30px;">
 									<form class="form-horizontal" action="AddBook" method="post">
 
 
 
-									<div class="form-group">
-										<label for="Fname">Author : </label> <input type="text"
-											class="form-control" name="AUTHOR"> <br> <label
-											for="Lname">Last Name : </label> <input type="text"
-											class="form-control" name="LAST_NAME"> <br> <label
-											for="JobRole">ISBN : </label> <input type="text"
-											class="form-control" name="ISBN"> <br> <label
-											for="Age">Major : </label> <input type="text"
-											class="form-control" name="MAJOR"> <br> <label
-											for="Age">Book Class : </label> <input type="text"
-											class="form-control" name="CLASS"> <br>
+										<div class="form-group">
+											<label for="Fname">Author : </label> <input type="text"
+												class="form-control" name="AUTHOR"> <br> <label
+												for="Lname">Last Name : </label> <input type="text"
+												class="form-control" name="LAST_NAME"> <br> <label
+												for="JobRole">ISBN : </label> <input type="text"
+												class="form-control" name="ISBN"> <br> <label
+												for="Age">Major : </label> <input type="text"
+												class="form-control" name="MAJOR"> <br> <label
+												for="Age">Book Class : </label> <input type="text"
+												class="form-control" name="CLASS"> <br>
 
-										<button type="submit">Add Book</button>
-									</div>
-								</form>
-								
+											<button type="submit">Add Book</button>
+										</div>
+									</form>
+
 								</div>
 							</div>
 							<div class="modal-footer">
@@ -176,31 +211,9 @@
 									data-dismiss="modal">Close</button>
 							</div>
 						</div>
-
 					</div>
 				</div>
-
-
-				<table id="myTable"
-					class="table table-striped table-bordered table-sm" cellspacing="0"
-					width="100%">
-					<thead>
-						<tr>
-							<th class="th-sm">author</th>
-							<th class="th-sm">ISBN</th>
-							<th class="th-sm">Uploaded by</th>
-							<th class="th-sm">Major</th>
-							<th class="th-sm">Book Class</th>
-							<th class="th-sm"></th>
-
-						</tr>
-				</table>
-
-
 			</div>
-
-
-
 		</div>
 	</div>
 </body>

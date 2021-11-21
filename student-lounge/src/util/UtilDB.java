@@ -87,9 +87,35 @@ public class UtilDB {
 		}
 		return resultList;
 	}
+	public static List<Book> listUserBooks(String keyword) {
+		List<Book> resultList = new ArrayList<Book>();
+
+		Session session = getSessionFactory().openSession();
+		Transaction tx = null;
+
+		try {
+			tx = session.beginTransaction();
+			System.out.println((Book) session.get(Book.class, 1));
+			List<?> books = session.createQuery("FROM Book").list();
+			for (Iterator<?> iterator = books.iterator(); iterator.hasNext();) {
+				Book book = (Book) iterator.next();
+				if (book.getUploader().contains(keyword)) {
+					resultList.add(book);
+				}
+			}
+			tx.commit();
+		} catch (HibernateException e) {
+			if (tx != null)
+				tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return resultList;
+	}
 
 	public static void createBooks(String title, String author, String iSBN, String uploader, String major,
-			String bookClass) {
+			String bookClass) { 
 		Session session = getSessionFactory().openSession();
 		Transaction tx = null;
 		try {
