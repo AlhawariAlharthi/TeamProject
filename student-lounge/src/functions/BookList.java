@@ -53,7 +53,7 @@ public class BookList extends HttpServlet {
 	      }
 	      display(listBooks, out);
 	      out.println("</ul>");
-	      out.println("<a href=/" + projectName + "/" + searchWebName + ">Search Data</a> <br>");
+	      // out.println("<a href=/" + projectName + "/" + searchWebName + ">Search Data</a> <br>");
 	      out.println("</body></html>");
 	}
 	

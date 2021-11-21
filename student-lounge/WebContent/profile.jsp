@@ -61,7 +61,7 @@
 </style>
 </head>
 <body>
-	${wronginput}
+	
 
 	<%
 		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
@@ -94,7 +94,7 @@
 	</div>
 	<div class="container" style="width: 90%;">
 		<ul class="nav nav-tabs">
-			<li class="active"><a data-toggle="tab" href="#menu2">Manage Books</a></li>
+			<li><a data-toggle="tab" href="#menu2">Manage Books</a></li>
 			<li><a data-toggle="tab" href="#menu1">Settings</a></li>
 
 
@@ -165,18 +165,17 @@
 									<form class="form-horizontal" action="AddBook" method="post">
 
 
-
-										<div class="form-group">
-											<label for="Fname">Author : </label> <input type="text"
-												class="form-control" name="AUTHOR"> <br> <label
-												for="Lname">Last Name : </label> <input type="text"
-												class="form-control" name="LAST_NAME"> <br> <label
-												for="JobRole">ISBN : </label> <input type="text"
-												class="form-control" name="ISBN"> <br> <label
-												for="Age">Major : </label> <input type="text"
-												class="form-control" name="MAJOR"> <br> <label
-												for="Age">Book Class : </label> <input type="text"
-												class="form-control" name="CLASS"> <br>
+									<div class="form-group">
+										<label for="Fname">Author : </label> <input type="text"
+											class="form-control" name="AUTHOR"> <br> <label
+											for="Lname">Title : </label> <input type="text"
+											class="form-control" name="TITLE"> <br> <label
+											for="JobRole">ISBN : </label> <input type="text"
+											class="form-control" name="ISBN"> <br> <label
+											for="Age">Major : </label> <input type="text"
+											class="form-control" name="MAJOR"> <br> <label
+											for="Age">Book Class : </label> <input type="text"
+											class="form-control" name="CLASS"> <br>
 
 											<button type="submit">Add Book</button>
 										</div>
