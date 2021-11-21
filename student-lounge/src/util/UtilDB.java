@@ -13,7 +13,7 @@ import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
 import datamodel.Book;
-
+import datamodel.User;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -121,6 +121,22 @@ public class UtilDB {
 		try {
 			tx = session.beginTransaction();
 			session.save(new Book(title, author, iSBN, uploader, major, bookClass));
+			tx.commit();
+		} catch (HibernateException e) {
+			if (tx != null)
+				tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+	}
+	
+	public static void createUser(String email, String userName, String firstName, String lastName, String password, boolean admin) { 
+		Session session = getSessionFactory().openSession();
+		Transaction tx = null;
+		try {
+			tx = session.beginTransaction();
+			session.save(new User(email, userName, firstName, lastName,  password, admin));
 			tx.commit();
 		} catch (HibernateException e) {
 			if (tx != null)

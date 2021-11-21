@@ -58,6 +58,42 @@
 	background-color: #FFFFFF;
 	color: black;
 }
+.card-horizontal {
+	display: flex;
+	flex: 1 1 auto;
+}
+
+img.bookimg {
+	hight: 300px;
+	width: 150px;
+	margin-right: 5px;
+}
+
+.column {
+	float: left;
+	width: 50%;
+	padding: 0 10px;
+}
+
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.row {
+	width: 90%;
+	margin: auto;
+	margin-bottom: 20px;
+}
+
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	padding: 10px;
+	border: 3px solid;
+	border-radius: 5px;
+	background-color: #f1f1f1;
+}
 </style>
 </head>
 <body>
