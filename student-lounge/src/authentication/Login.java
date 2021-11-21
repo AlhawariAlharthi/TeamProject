@@ -48,13 +48,8 @@ public class Login extends HttpServlet {
 			if (username.equals("a@a.a") && password.equals("a")) {
 				HttpSession session = request.getSession();
 				session.setAttribute("username", username);
-				/*
-				String wronginput = "<div class=\"alert alert-warning\">\r\n"
-						+ "  <strong>Warning!</strong> You are in!.\r\n" + "</div>";
-				request.setAttribute("wronginput", wronginput);
-				*/
-				RequestDispatcher rd = request.getRequestDispatcher("profile.jsp");
-				rd.forward(request, response);
+				
+				response.sendRedirect("profile.jsp");
 
 			} else if (username.equals("")) {
 				String wronginput = "<div class=\"text-right\" class=\"alert alert-warning\">\r\n"

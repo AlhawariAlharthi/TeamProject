@@ -38,7 +38,7 @@
 <title>Welcome back ${user}. </title>
 </head>
 <body>
-	${wronginput}
+	
 
 	<%
 		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
@@ -134,8 +134,8 @@
 									<div class="form-group">
 										<label for="Fname">Author : </label> <input type="text"
 											class="form-control" name="AUTHOR"> <br> <label
-											for="Lname">Last Name : </label> <input type="text"
-											class="form-control" name="LAST_NAME"> <br> <label
+											for="Lname">Title : </label> <input type="text"
+											class="form-control" name="TITLE"> <br> <label
 											for="JobRole">ISBN : </label> <input type="text"
 											class="form-control" name="ISBN"> <br> <label
 											for="Age">Major : </label> <input type="text"
