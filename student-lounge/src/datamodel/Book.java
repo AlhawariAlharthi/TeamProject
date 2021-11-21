@@ -5,10 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+@Entity
+@Table(name = "BookTable")
 public class Book {
-	@Entity
-	@Table(name = "BookTable")
-	public class Costumer {
+	
 	    @Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		@Column(name = "id") // specify the column name. Without it, it will use method name
@@ -35,7 +35,7 @@ public class Book {
 	   @Column(name = "bookClass")
 	   private String bookClass;
 
-	public Costumer(Integer id, String title, String author, String iSBN, String uploader, String major,
+	public Book(Integer id, String title, String author, String iSBN, String uploader, String major,
 			String bookClass) {
 		this.id = id;
 		this.title = title;
@@ -46,7 +46,7 @@ public class Book {
 		this.bookClass = bookClass;
 	}
 	
-	public Costumer( String title, String author, String iSBN, String uploader, String major,
+	public Book( String title, String author, String iSBN, String uploader, String major,
 			String bookClass) {
 		
 		this.title = title;
@@ -115,11 +115,10 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Costumer [id=" + id + ", title=" + title + ", author=" + author + ", ISBN=" + ISBN + ", uploader="
+		return "Book [id=" + id + ", title=" + title + ", author=" + author + ", ISBN=" + ISBN + ", uploader="
 				+ uploader + ", major=" + major + ", bookClass=" + bookClass + "]";
 	}
 
 	   
 	}
 
-}

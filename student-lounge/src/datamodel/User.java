@@ -6,11 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+@Entity
+@Table(name = "UserTable")
 public class User {
 	
-	@Entity
-	@Table(name = "BookTable")
-	public class Costumer {
 	    @Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		@Column(name = "id") // specify the column name. Without it, it will use method name
@@ -30,7 +29,7 @@ public class User {
 		   @Column(name = "admin")
 		   private boolean admin;
 
-		public Costumer(Integer id, String name, String email, String password, boolean admin) {
+		public User(Integer id, String name, String email, String password, boolean admin) {
 
 			this.id = id;
 			this.name = name;
@@ -38,7 +37,7 @@ public class User {
 			this.password = password;
 			this.admin = admin;
 		}
-		public Costumer(String name, String email, String password, boolean admin) {
+		public User(String name, String email, String password, boolean admin) {
 
 			this.name = name;
 			this.email = email;
@@ -77,10 +76,9 @@ public class User {
 		}
 		@Override
 		public String toString() {
-			return "Costumer [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", admin="
+			return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", admin="
 					+ admin + "]";
 		}
 		
 		   
 	}
-}
