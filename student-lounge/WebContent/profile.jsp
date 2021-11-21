@@ -73,8 +73,9 @@
 	%>
 	<div class="topnav">
 
-		<a href="./booklist.html">Explore</a> <a href="./index.html">Home</a>
 		<a href="./Logout">Logout</a>
+		<a href="./booklist.html">Explore</a> <a href="./index.html">Home</a>
+		
 
 	</div>
 
