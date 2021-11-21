@@ -94,7 +94,6 @@ body {
 </style>
 <body>
 
-${wronginput}
 	<div class="sidenav">
 		<div class="login-main-text">
 			<h2>

@@ -3,133 +3,412 @@
 
 <head>
 
-    <title>Bootstrap Theme Company Page</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="homeStyle.css">
-    <style>
-  	.topnav {
-  overflow: hidden;
-  background-color: #000000;
+<title>Bootstrap Theme Company Page</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat"
+	rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Lato"
+	rel="stylesheet" type="text/css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="homeStyle.css">
+<style>
+.topnav {
+	overflow: hidden;
+	background-color: #000000;
 }
 
 .topnav a {
-  float: right;
-  padding: 50px;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-  font-family: Montserrat, sans-serif;
+	float: right;
+	padding: 50px;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+	font-family: Montserrat, sans-serif;
 }
 
 .topnav a:hover {
-  background-color: #FFFFFF;
-  color: black;
+	background-color: #FFFFFF;
+	color: black;
 }
+
 .card-horizontal {
-  display: flex;
-  flex: 1 1 auto;
+	display: flex;
+	flex: 1 1 auto;
 }
-  </style>
+
+img.bookimg {
+	hight: 300px;
+	width: 150px;
+	margin-right: 5px;
+}
+
+.column {
+	float: left;
+	width: 50%;
+	padding: 0 10px;
+}
+
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+.row {
+	width: 90%;
+	margin: auto;
+	margin-bottom: 20px;
+}
+
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	padding: 10px;
+	border: 3px solid;
+    border-radius: 5px;
+	background-color: #f1f1f1;
+}
+</style>
 </head>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="60">
+<body id="top" data-spy="scroll" data-target=".navbar" data-offset="60">
 
-    <div class="topnav">
-  <a href="./login.html">Log in</a>
-  <a href="./signup.html">Sign up</a>
-  <a href="./booklist.html">Explore</a>
-  <a href="./index.html">Home</a>
-</div>
+	<div class="topnav">
+		<a href="./login.html">Log in</a> <a href="./signup.html">Sign up</a>
+		<a href="./booklist.html">Explore</a> <a href="./index.html">Home</a>
+	</div>
 
 
-    <div class="jumbotron text-center">
-        <h1>Student Lounge</h1>
-        <p>Book Sharing</p>
-        <form style="width:75%; display: inline-block;">
-            <div class="input-group">
-                <input type="text" class="form-control" size="50" name="search" placeholder="Search book" required>
-                <div class="input-group-btn">
-                    <button type="submit" class="btn btn-danger">Search</button>
-                </div>
-            </div>
-        </form>
-    </div>
-    
-    
-<div class="card" style = "bordr: 2px solid;">
-    <div class="card-horizontal">
-        <div class="img-square-wrapper">
-            <img class="" src="http://via.placeholder.com/300x180" alt="Card image cap">
-        </div>
-        <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-    </div>
-    <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-    </div>
-</div>
-<div class="card">
-    <div class="card-horizontal">
-        <div class="img-square-wrapper">
-            <img class="" src="http://via.placeholder.com/300x180" alt="Card image cap">
-        </div>
-        <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-    </div>
-    <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-    </div>
-</div>
-<div class="card">
-    <div class="card-horizontal">
-        <div class="img-square-wrapper">
-            <img class="" src="http://via.placeholder.com/300x180" alt="Card image cap">
-        </div>
-        <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-    </div>
-    <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-    </div>
-</div>
-<div class="card">
-    <div class="card-horizontal">
-        <div class="img-square-wrapper">
-            <img class="" src="http://via.placeholder.com/300x180" alt="Card image cap">
-        </div>
-        <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-    </div>
-    <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-    </div>
-</div>
+	<div class="jumbotron text-center">
+		<h1>Student Lounge</h1>
+		<p>Book Sharing</p>
+		<form style="width: 75%; display: inline-block;">
+			<div class="input-group">
+				<input type="text" class="form-control" size="50" name="search"
+					placeholder="Search book" required>
+				<div class="input-group-btn">
+					<button type="submit" class="btn btn-danger">Search</button>
+				</div>
+			</div>
+		</form>
+	</div>
 
+	<div class="row">
+		<div class="column">
+			<div class="card">
+				<div class="card-horizontal">
+					<div class="">
+						<img class="bookimg" src="phone3.jpg" alt=""
+							style="border-radius: 10px;">
+					</div>
+					<div class="card-body">
+						<h4 class="card-title">Chemistry in context</h4>
+						<p class="card-text"><b>Auther:</b> Max Ronald.</p>
+						<p> <b>Class:</b> CSCI400-850</p>
+						<p> <b>Owner:</b> Alhawari Alharthi</p>
+						<p> <b>Contact info:</b> example@gmail.com</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="column">
+			<div class="card">
+				<div class="card-horizontal">
+					<div class="">
+						<img class="bookimg" src="phone3.jpg" alt=""
+							style="border-radius: 10px;">
+					</div>
+					<div class="card-body">
+						<h4 class="card-title">Chemistry in context</h4>
+						<p class="card-text"><b>Auther:</b> Max Ronald.</p>
+						<p> <b>Class:</b> CSCI400-850</p>
+						<p> <b>Owner:</b> Alhawari Alharthi</p>
+						<p> <b>Contact info:</b> example@gmail.com</p>
+					</div>
+				</div>
+			</div>
+		</div>
 
+	</div>
+	
+		<div class="row">
+		<div class="column">
+			<div class="card">
+				<div class="card-horizontal">
+					<div class="">
+						<img class="bookimg" src="phone3.jpg" alt=""
+							style="border-radius: 10px;">
+					</div>
+					<div class="card-body">
+						<h4 class="card-title">Chemistry in context</h4>
+						<p class="card-text"><b>Auther:</b> Max Ronald.</p>
+						<p> <b>Class:</b> CSCI400-850</p>
+						<p> <b>Owner:</b> Alhawari Alharthi</p>
+						<p> <b>Contact info:</b> example@gmail.com</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="column">
+			<div class="card">
+				<div class="card-horizontal">
+					<div class="">
+						<img class="bookimg" src="phone3.jpg" alt=""
+							style="border-radius: 10px;">
+					</div>
+					<div class="card-body">
+						<h4 class="card-title">Chemistry in context</h4>
+						<p class="card-text"><b>Auther:</b> Max Ronald.</p>
+						<p> <b>Class:</b> CSCI400-850</p>
+						<p> <b>Owner:</b> Alhawari Alharthi</p>
+						<p> <b>Contact info:</b> example@gmail.com</p>
+					</div>
+				</div>
+			</div>
+		</div>
 
+	</div>
+	
+		<div class="row">
+		<div class="column">
+			<div class="card">
+				<div class="card-horizontal">
+					<div class="">
+						<img class="bookimg" src="phone3.jpg" alt=""
+							style="border-radius: 10px;">
+					</div>
+					<div class="card-body">
+						<h4 class="card-title">Chemistry in context</h4>
+						<p class="card-text"><b>Auther:</b> Max Ronald.</p>
+						<p> <b>Class:</b> CSCI400-850</p>
+						<p> <b>Owner:</b> Alhawari Alharthi</p>
+						<p> <b>Contact info:</b> example@gmail.com</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="column">
+			<div class="card">
+				<div class="card-horizontal">
+					<div class="">
+						<img class="bookimg" src="phone3.jpg" alt=""
+							style="border-radius: 10px;">
+					</div>
+					<div class="card-body">
+						<h4 class="card-title">Chemistry in context</h4>
+						<p class="card-text"><b>Auther:</b> Max Ronald.</p>
+						<p> <b>Class:</b> CSCI400-850</p>
+						<p> <b>Owner:</b> Alhawari Alharthi</p>
+						<p> <b>Contact info:</b> example@gmail.com</p>
+					</div>
+				</div>
+			</div>
+		</div>
 
-   <footer class="container-fluid text-center">
-        <a href="#myPage" title="To Top">
-            <span class="glyphicon glyphicon-chevron-up"></span>
-        </a>
-    </footer>
-<!-- 
+	</div>
+	
+		<div class="row">
+		<div class="column">
+			<div class="card">
+				<div class="card-horizontal">
+					<div class="">
+						<img class="bookimg" src="phone3.jpg" alt=""
+							style="border-radius: 10px;">
+					</div>
+					<div class="card-body">
+						<h4 class="card-title">Chemistry in context</h4>
+						<p class="card-text"><b>Auther:</b> Max Ronald.</p>
+						<p> <b>Class:</b> CSCI400-850</p>
+						<p> <b>Owner:</b> Alhawari Alharthi</p>
+						<p> <b>Contact info:</b> example@gmail.com</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="column">
+			<div class="card">
+				<div class="card-horizontal">
+					<div class="">
+						<img class="bookimg" src="phone3.jpg" alt=""
+							style="border-radius: 10px;">
+					</div>
+					<div class="card-body">
+						<h4 class="card-title">Chemistry in context</h4>
+						<p class="card-text"><b>Auther:</b> Max Ronald.</p>
+						<p> <b>Class:</b> CSCI400-850</p>
+						<p> <b>Owner:</b> Alhawari Alharthi</p>
+						<p> <b>Contact info:</b> example@gmail.com</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	
+		<div class="row">
+		<div class="column">
+			<div class="card">
+				<div class="card-horizontal">
+					<div class="">
+						<img class="bookimg" src="phone3.jpg" alt=""
+							style="border-radius: 10px;">
+					</div>
+					<div class="card-body">
+						<h4 class="card-title">Chemistry in context</h4>
+						<p class="card-text"><b>Auther:</b> Max Ronald.</p>
+						<p> <b>Class:</b> CSCI400-850</p>
+						<p> <b>Owner:</b> Alhawari Alharthi</p>
+						<p> <b>Contact info:</b> example@gmail.com</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="column">
+			<div class="card">
+				<div class="card-horizontal">
+					<div class="">
+						<img class="bookimg" src="phone3.jpg" alt=""
+							style="border-radius: 10px;">
+					</div>
+					<div class="card-body">
+						<h4 class="card-title">Chemistry in context</h4>
+						<p class="card-text"><b>Auther:</b> Max Ronald.</p>
+						<p> <b>Class:</b> CSCI400-850</p>
+						<p> <b>Owner:</b> Alhawari Alharthi</p>
+						<p> <b>Contact info:</b> example@gmail.com</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	
+		<div class="row">
+		<div class="column">
+			<div class="card">
+				<div class="card-horizontal">
+					<div class="">
+						<img class="bookimg" src="phone3.jpg" alt=""
+							style="border-radius: 10px;">
+					</div>
+					<div class="card-body">
+						<h4 class="card-title">Chemistry in context</h4>
+						<p class="card-text"><b>Auther:</b> Max Ronald.</p>
+						<p> <b>Class:</b> CSCI400-850</p>
+						<p> <b>Owner:</b> Alhawari Alharthi</p>
+						<p> <b>Contact info:</b> example@gmail.com</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="column">
+			<div class="card">
+				<div class="card-horizontal">
+					<div class="">
+						<img class="bookimg" src="phone3.jpg" alt=""
+							style="border-radius: 10px;">
+					</div>
+					<div class="card-body">
+						<h4 class="card-title">Chemistry in context</h4>
+						<p class="card-text"><b>Auther:</b> Max Ronald.</p>
+						<p> <b>Class:</b> CSCI400-850</p>
+						<p> <b>Owner:</b> Alhawari Alharthi</p>
+						<p> <b>Contact info:</b> example@gmail.com</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	
+		<div class="row">
+		<div class="column">
+			<div class="card">
+				<div class="card-horizontal">
+					<div class="">
+						<img class="bookimg" src="phone3.jpg" alt=""
+							style="border-radius: 10px;">
+					</div>
+					<div class="card-body">
+						<h4 class="card-title">Chemistry in context</h4>
+						<p class="card-text"><b>Auther:</b> Max Ronald.</p>
+						<p> <b>Class:</b> CSCI400-850</p>
+						<p> <b>Owner:</b> Alhawari Alharthi</p>
+						<p> <b>Contact info:</b> example@gmail.com</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="column">
+			<div class="card">
+				<div class="card-horizontal">
+					<div class="">
+						<img class="bookimg" src="phone3.jpg" alt=""
+							style="border-radius: 10px;">
+					</div>
+					<div class="card-body">
+						<h4 class="card-title">Chemistry in context</h4>
+						<p class="card-text"><b>Auther:</b> Max Ronald.</p>
+						<p> <b>Class:</b> CSCI400-850</p>
+						<p> <b>Owner:</b> Alhawari Alharthi</p>
+						<p> <b>Contact info:</b> example@gmail.com</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	
+		<div class="row">
+		<div class="column">
+			<div class="card">
+				<div class="card-horizontal">
+					<div class="">
+						<img class="bookimg" src="phone3.jpg" alt=""
+							style="border-radius: 10px;">
+					</div>
+					<div class="card-body">
+						<h4 class="card-title">Chemistry in context</h4>
+						<p class="card-text"><b>Auther:</b> Max Ronald.</p>
+						<p> <b>Class:</b> CSCI400-850</p>
+						<p> <b>Owner:</b> Alhawari Alharthi</p>
+						<p> <b>Contact info:</b> example@gmail.com</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="column">
+			<div class="card">
+				<div class="card-horizontal">
+					<div class="">
+						<img class="bookimg" src="phone3.jpg" alt=""
+							style="border-radius: 10px;">
+					</div>
+					<div class="card-body">
+						<h4 class="card-title">Chemistry in context</h4>
+						<p class="card-text"><b>Auther:</b> Max Ronald.</p>
+						<p> <b>Class:</b> CSCI400-850</p>
+						<p> <b>Owner:</b> Alhawari Alharthi</p>
+						<p> <b>Contact info:</b> example@gmail.com</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	
+	<footer class="container-fluid text-center">
+		<a href="#top" title="To Top"> <span
+			class="glyphicon glyphicon-chevron-up"></span>
+		</a>
+	</footer>
+
     <script>
         $(document).ready(function () {
             // Add smooth scrolling to all links in navbar + footer link
@@ -166,7 +445,6 @@
             });
         })
     </script>
- -->
 </body>
 
 </html>
