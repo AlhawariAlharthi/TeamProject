@@ -40,7 +40,16 @@ PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
 		String emailS = session.getAttribute("email").toString();
 		User user = UtilDB.getUsers(emailS, "email").get(0);
-		List<Book> listbooks = UtilDB.listUserBooks(user.getEmail());
+		List<Book> listbooks = null;
+		if(user.isAdmin())
+		{
+			listbooks = UtilDB.listBooks();
+		}
+		else
+		{
+			listbooks = UtilDB.listUserBooks(user.getEmail());
+		}
+		
 		
 		for (int i = 0; i < listbooks.size(); i+= 2) {
 out.append( String.format("<div class=\"row\">\r\n" + 
@@ -80,7 +89,7 @@ out.append( String.format("<div class=\"row\">\r\n" +
 		"				</div>\r\n" + 
 		"			</div>\r\n" + 
 		"		</div>\r\n", listbooks.get(i).getTitle(), listbooks.get(i).getAuthor(), listbooks.get(i).getISBN(),
-		listbooks.get(i).getMajor(), listbooks.get(i).getBookClass(), user.getUserName(), listbooks.get(i).getUploader(), listbooks.get(i).getId(), listbooks.get(i).getId()));
+		listbooks.get(i).getMajor(), listbooks.get(i).getBookClass(), UtilDB.getUsers(listbooks.get(i).getUploader(), "email").get(0).getUserName(), listbooks.get(i).getUploader(), listbooks.get(i).getId(), listbooks.get(i).getId()));
 		if (i + 1 >= listbooks.size())
 		{
 			break;
@@ -124,7 +133,7 @@ out.append( String.format(
 		"			</div>\r\n" + 
 		"		</div>\r\n" + 
 		"	</div>"	,listbooks.get(i + 1).getTitle(), listbooks.get(i + 1).getAuthor(), listbooks.get(i + 1).getISBN(),
-		listbooks.get(i + 1).getMajor(), listbooks.get(i + 1).getBookClass(), user.getUserName(), listbooks.get(i + 1).getUploader(), listbooks.get(i + 1).getId(), listbooks.get(i + 1).getId()));
+		listbooks.get(i + 1).getMajor(), listbooks.get(i + 1).getBookClass(), UtilDB.getUsers(listbooks.get(i + 1).getUploader(), "email").get(0).getUserName(), listbooks.get(i + 1).getUploader(), listbooks.get(i + 1).getId(), listbooks.get(i + 1).getId()));
 	      }
 		
 		

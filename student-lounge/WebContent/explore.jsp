@@ -97,19 +97,21 @@ img.bookimg {
 		<p>Book Sharing</p>
 		<form style="width: 75%; display: inline-block;" action="Search">
 			<div class="input-group">
-				<input type="text" class="form-control" size="50" name="search"
-					placeholder="Search book" id="keyword">
+				<input type="text" class="form-control" size="50"
+					placeholder="Search book" name="keyword">
 				<div class="input-group-btn">
 					<button type="submit" class="btn btn-danger" >Search</button>
 				</div>
 			</div>
 		</form>
 	</div>
-
-	<div id="allbooks"></div>
 	<script>
-		getAllBooks( ${books} );
+	getAllBooks();
 	</script>
+	<div id="allBooks">
+	
+	</div>
+	
 	
 
 	<footer class="container-fluid text-center">

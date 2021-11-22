@@ -92,17 +92,20 @@ img.bookimg {
 	<div class="jumbotron text-center">
 		<h1>Student Lounge</h1>
 		<p>Book Sharing</p>
-		<form style="width: 75%; display: inline-block;">
+		<div style="width: 75%; display: inline-block;">
 			<div class="input-group">
-				<input type="text" class="form-control" size="50" name="search"
+				<input type="text" class="form-control" size="50"
 					placeholder="Search book" id="keyword">
 				<div class="input-group-btn">
-					<button type="submit" class="btn btn-danger" >Search</button>
+					<button onclick="getAllBooks()" class="btn btn-danger" >Search</button>
 				</div>
 			</div>
-		</form>
+		</div>
 	</div>
 
+	<script>
+	getAllBooks();
+	</script>
 	<div id="allBooks"></div>
 
 	

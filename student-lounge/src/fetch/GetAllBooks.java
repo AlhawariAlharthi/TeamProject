@@ -36,11 +36,22 @@ public class GetAllBooks extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 PrintWriter out = response.getWriter();
 		
-		List<Book> listbooks = UtilDB.listBooks();
-		
+
 		String key = request.getParameter("keyword");
-		
+		List<Book> listbooks = null;
 		System.out.println("keyword ==> " + key);
+		
+		if (key.isEmpty())
+		{
+			listbooks = UtilDB.listBooks();
+		}
+		else
+		{
+			listbooks = UtilDB.listBooks(key);
+		}
+		
+		
+		
 		
 		for (int i = 0; i < listbooks.size(); i+= 2) {
 out.append( String.format("<div class=\"row\">\r\n" + 

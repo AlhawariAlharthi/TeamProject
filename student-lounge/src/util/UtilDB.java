@@ -95,7 +95,7 @@ public class UtilDB {
 			for (Iterator<?> iterator = books.iterator(); iterator.hasNext();) {
 				Book book = (Book) iterator.next();
 				if (book.getTitle().contains(keyword) || book.getBookClass().contains(keyword)
-						|| book.getMajor().contains(keyword) || book.getISBN().contains(keyword)) {
+						|| book.getMajor().contains(keyword) || book.getISBN().contains(keyword) || book.getAuthor().contains(keyword)) {
 					resultList.add(book);
 				}
 			}

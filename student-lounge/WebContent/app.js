@@ -28,25 +28,31 @@ function deleteBook(id) {
 	getBooks();
 }
 
-function getAllBooks(id) {
-
-	if (id == 2) {
-		fetch('/student-lounge/GetAllBooks').then(function(response) {
-			return response.text().then(function(text) {
-				document.getElementById("allBooks").innerHTML = text;
-			});
-		});
-	}
-	else
-		{
-		var key = document.getElementById("keyword").value;
+function getAllBooks() {
+	var key;
+	try
+	{
+		key = document.getElementById("keyword").value;
+		
 		fetch('/student-lounge/GetAllBooks?keyword=' + key).then(
 				function(response) {
 					return response.text().then(function(text) {
+						console.log(text);
 						document.getElementById("allBooks").innerHTML = text;
 					});
 				});
-		}
+	}
+	catch(error)
+	{
+		fetch('/student-lounge/GetAllBooks').then(
+				function(response) {
+					return response.text().then(function(text) {
+						console.log(text);
+						document.getElementById("allBooks").innerHTML = text;
+					});
+				});
+	}
+	
+
 
 }
-
