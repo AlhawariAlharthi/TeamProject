@@ -30,7 +30,7 @@
 <script
 	src="https://editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js"></script>
 
-<script type="text/javascript" src="HRApp.js"></script>
+<script type="text/javascript" src="app.js"></script>
 
 <style type="text/css">
 </style>
@@ -58,6 +58,7 @@
 	background-color: #FFFFFF;
 	color: black;
 }
+
 .card-horizontal {
 	display: flex;
 	flex: 1 1 auto;
@@ -103,15 +104,15 @@ img.bookimg {
 		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 		response.setHeader("Pragma", "no-cache");
 		response.setHeader("Expires", "0");
-		if (session.getAttribute("username") == null) {
+		if (session.getAttribute("email") == null) {
 			response.sendRedirect("index.html");
 		}
 	%>
 	<div class="topnav">
 
-		<a href="./Logout">Logout</a>
-		<a href="./booklist.html">Explore</a> <a href="./index.html">Home</a>
-		
+		<a href="./Logout">Logout</a> <a href="./booklist.html">Explore</a> <a
+			href="./index.html">Home</a>
+
 
 	</div>
 
@@ -130,20 +131,36 @@ img.bookimg {
 		</form>
 	</div>
 	<div class="container" style="width: 90%;">
+	${wronginput}
 		<ul class="nav nav-tabs">
+			<li><a data-toggle="tab" href="#menu3">Profile
+					Info</a></li>
 			<li><a data-toggle="tab" href="#menu2">Manage Books</a></li>
 			<li><a data-toggle="tab" href="#menu1">Settings</a></li>
+
 		</ul>
 
 		<div class="tab-content">
+
+
+			<div id="menu3" class="tab-pane fade">
+				<h3>Profile Information</h3>
+				<script>
+					getInfo();
+				</script>
+				
+				<div id="info"></div>
+				
+			</div>
+
 			<div id="menu1" class="tab-pane fade">
 				<h3>Change Password</h3>
 
 				<div class="container">
 
-					<form action="ChangePass" method="post">
+					<form action="EditUser" method="post">
 
-						<div class="input-group">
+						<div class="input-group" style="margin-bottom: 10px;">
 							<span class="input-group-addon"><i
 								class="glyphicon glyphicon-lock"></i></span> <input id="password"
 								type="password" class="form-control" name="pass"
@@ -157,7 +174,42 @@ img.bookimg {
 						</div>
 						<br>
 						<div class="input-group">
-							<input type="submit" value="Change Password">
+							<input name="changePassword" type="submit"
+								value="Change Password">
+						</div>
+					</form>
+				</div>
+				<h3>Change Email</h3>
+				<div class="container">
+
+					<form action="EditUser" method="post">
+
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-lock"></i></span> <input
+								class="form-control" name="email" placeholder="New Email"
+								type="email">
+						</div>
+						<br>
+						<div class="input-group">
+							<input name="changeEmail" type="submit" value="Change Email">
+						</div>
+					</form>
+				</div>
+				<h3>Change User Name</h3>
+				<div class="container" style="margin-bottom: 50px;">
+
+					<form action="EditUser" method="post">
+
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-lock"></i></span> <input
+								class="form-control" name="username" placeholder="New UserName">
+						</div>
+						<br>
+						<div class="input-group">
+							<input name="changeUserName" type="submit"
+								value="Change UserName">
 						</div>
 					</form>
 				</div>
@@ -197,20 +249,20 @@ img.bookimg {
 
 										<div class="form-group">
 											<label for="Fname">Author : </label> <input type="text"
-												class="form-control" name="AUTHOR"> <br> <label
+												class="form-control" name="AUTHOR" value=""> <br> <label
 												for="Lname">Title : </label> <input type="text"
-												class="form-control" name="TITLE"> <br> <label
+												class="form-control" name="TITLE" value=""> <br> <label
 												for="JobRole">ISBN : </label> <input type="text"
-												class="form-control" name="ISBN"> <br> <label
+												class="form-control" name="ISBN" value=""> <br> <label
 												for="Age">Major : </label> <input type="text"
-												class="form-control" name="MAJOR"> <br> <label
+												class="form-control" name="MAJOR" value=""> <br> <label
 												for="Age">Book Class : </label> <input type="text"
-												class="form-control" name="CLASS"> <br>
+												class="form-control" name="CLASS" value=""> <br>
 
 											<button type="submit">Add Book</button>
 										</div>
 									</form>
-
+									
 								</div>
 							</div>
 							<div class="modal-footer">
@@ -222,8 +274,15 @@ img.bookimg {
 					</div>
 				</div>
 
+
+				<!-- Books card -->
+					<script>
+					getBooks();
+				</script>
+				<div id="books"></div>
+				
 				<!-- Modal -->
-				<div class="modal fade" id="myModal" role="dialog">
+				<div class="modal fade" id="EditModal" role="dialog">
 					<div class="modal-dialog">
 
 						<!-- Modal content-->
@@ -233,7 +292,7 @@ img.bookimg {
 								<h4 class="modal-title">Edit Book</h4>
 							</div>
 							<div class="modal-body">
-								<div id="add_to_me"></div>
+								<div id="book"></div>
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default"

@@ -38,8 +38,8 @@
 
 
 <div class="topnav">
-  <a href="./login.html">Log in</a>
-  <a href="./signup.html">Sign up</a>
+  <a href="./login.jsp">Log in</a>
+  <a href="./signup.jsp">Sign up</a>
   <a href="./booklist.html">Explore</a>
   <a href="./index.html">Home</a>
 </div>
@@ -48,11 +48,11 @@
 <div class="jumbotron text-center">
   <h1>Student Lounge</h1> 
   <p>Book Sharing</p>
-  <form>
+  <form method="post" action="GetAllBooks">
     <div class="input-group">
-      <input type="text" class="form-control" size="50" placeholder="Search book" required>
+      <input type="text" class="form-control" size="50" placeholder="Search book" name="keyword">
       <div class="input-group-btn">
-        <button type="button" class="btn btn-danger">Search</button>
+        <button type="submit" class="btn btn-danger" name="search">Search</button>
       </div>
     </div>
   </form>

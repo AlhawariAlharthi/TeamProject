@@ -140,8 +140,8 @@
 <body>
 
 	<div class="topnav">
-  <a href="./login.html">Log in</a>
-  <a href="./signup.html">Sign up</a>
+  
+  <a href="./signup.jsp">Sign up</a>
   <a href="./booklist.html">Explore</a>
   <a href="./index.html">Home</a>
 </div>
@@ -166,7 +166,7 @@
                      <input type="password" class="form-control" placeholder="Password" name="pass">
                   </div>
                   <button type="submit" class="btn btn-black" name ="login">Login</button>
-                  <a type="submit" class="btn btn-secondary" href= "signup.html">Sign Up</a>
+                  <a class="btn btn-secondary" href= "signup.jsp">Sign Up</a>
                </form>
             </div>
          </div>

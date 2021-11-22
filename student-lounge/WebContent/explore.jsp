@@ -1,6 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
 <head>
 
 <title>Bootstrap Theme Company Page</title>
@@ -79,8 +84,6 @@ img.bookimg {
 }
 </style>
 </head>
-
-
 <body id="top" data-spy="scroll" data-target=".navbar" data-offset="60">
 
 	<div class="topnav">
@@ -92,7 +95,7 @@ img.bookimg {
 	<div class="jumbotron text-center">
 		<h1>Student Lounge</h1>
 		<p>Book Sharing</p>
-		<form style="width: 75%; display: inline-block;">
+		<form style="width: 75%; display: inline-block;" action="Search">
 			<div class="input-group">
 				<input type="text" class="form-control" size="50" name="search"
 					placeholder="Search book" id="keyword">
@@ -103,8 +106,10 @@ img.bookimg {
 		</form>
 	</div>
 
-	<div id="allBooks"></div>
-
+	<div id="allbooks"></div>
+	<script>
+		getAllBooks( ${books} );
+	</script>
 	
 
 	<footer class="container-fluid text-center">
@@ -152,6 +157,4 @@ img.bookimg {
 				})
 	</script>
 </body>
-
-
 </html>

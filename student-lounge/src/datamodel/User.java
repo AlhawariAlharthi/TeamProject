@@ -34,9 +34,18 @@ public class User {
 	@Column(name = "admin")
 	private boolean admin;
 
+	
+	
+	
+
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public User(Integer id, String email, String userName, String firstName, String lastName, String password,
 			boolean admin) {
-
+	
 		this.id = id;
 		this.userName = userName;
 		this.firstName = firstName;

@@ -1,6 +1,7 @@
 package authentication;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import datamodel.User;
+import util.Hash;
+import util.UtilDB;
 
 /**
  * Servlet implementation class login
@@ -44,10 +49,13 @@ public class Login extends HttpServlet {
 		String password = request.getParameter("pass");
 
 		try {
+			
+			User user1 = UtilDB.getUsers(username, "email").get(0);
+			//User user2 = UtilDB.getUsers(username, "userName").get(0);
 
-			if (username.equals("a@a.a") && password.equals("a")) {
+			if ( username.equals(user1.getEmail()) && Hash.hash(password).equals(user1.getPassword())) {
 				HttpSession session = request.getSession();
-				session.setAttribute("username", username);
+				session.setAttribute("email", username);
 				
 				response.sendRedirect("profile.jsp");
 

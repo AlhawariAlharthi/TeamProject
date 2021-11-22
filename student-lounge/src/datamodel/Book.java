@@ -19,7 +19,12 @@ public class Book {
 	   private String title;
 
 	   
-	   @Column(name = "author")
+	   public Book() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@Column(name = "author")
 	   private String author;
 	   
 	  

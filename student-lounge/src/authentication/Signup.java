@@ -5,12 +5,14 @@ import java.io.PrintWriter;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import util.Hash;
 import util.UtilDB;
 
 /**
@@ -45,44 +47,44 @@ public class Signup extends HttpServlet {
 		String userName = request.getParameter("username");
 		String fname = request.getParameter("firtsname");
 		String lname = request.getParameter("lastname");
-		String password = hash(request.getParameter("password"));
-		String cpassword = request.getParameter("repassword");
+		String password = request.getParameter("password");
+		String repassword = request.getParameter("repassword");
 		
-		PrintWriter out = response.getWriter();
+		if (password.equals(repassword)) {
+			password = Hash.hash(password);
+			
+			
+			if( UtilDB.getUsers(email, "email").isEmpty() &&
+					UtilDB.getUsers(userName, "userName").isEmpty())
+			{
+				UtilDB.createUser(email, userName, fname, lname, password, false);
+				response.sendRedirect("login.jsp");
+			}
+			else
+			{
+				// user is existed error
+				String wronginput = "<div class=\"alert alert-warning\">\r\n"
+						+ "  This user/email is already existed!.\r\n" + "</div>";
+				request.setAttribute("wronginput", wronginput);
+				RequestDispatcher rd = request.getRequestDispatcher("signup.jsp");
+				rd.forward(request, response);
+			}
+		}
+		else
+		{
+			// password error
+			// user is existed error
+			String wronginput = "<div class=\"alert alert-warning\">\r\n"
+					+ "  Passwords dose not match!.\r\n" + "</div>";
+			request.setAttribute("wronginput", wronginput);
+			RequestDispatcher rd = request.getRequestDispatcher("signup.jsp");
+			rd.forward(request, response);
+		}
 		
-		out.append(userName + " " + password + " " + cpassword + " " + email + " " + " " + fname + " " + lname);
 		
-		UtilDB.createUser(email, userName, fname, lname, password, false);
 	}
 	
-	public static String hash(String str) {
-		 String passwordToHash = str;
-		    String generatedPassword = null;
-
-		    try 
-		    {
-		      // Create MessageDigest instance for MD5
-		      MessageDigest md = MessageDigest.getInstance("MD5");
-
-		      // Add password bytes to digest
-		      md.update(passwordToHash.getBytes());
-
-		      // Get the hash's bytes
-		      byte[] bytes = md.digest();
-
-		      // This bytes[] has bytes in decimal format. Convert it to hexadecimal format
-		      StringBuilder sb = new StringBuilder();
-		      for (int i = 0; i < bytes.length; i++) {
-		        sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
-		      }
-
-		      // Get complete hashed password in hex format
-		      generatedPassword = sb.toString();
-		    } catch (NoSuchAlgorithmException e) {
-		      e.printStackTrace();
-		    }
-		    return(generatedPassword);
-		  }
+	
 	}
 
 
