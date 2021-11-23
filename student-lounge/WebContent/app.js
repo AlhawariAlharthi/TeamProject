@@ -24,18 +24,20 @@ function getBook(id) {
 }
 
 function deleteBook(id) {
-	confirm('Are you sure you want to delete this book?');
-	fetch('/student-lounge/Delete?id=' + id);
+	var r = confirm('Are you sure you want to delete this book?');
+
+	if (r == true) {
+		fetch('/student-lounge/Delete?id=' + id);
+	}
+
 	getBooks();
 }
 
-
 function getAllBooks() {
 	var key;
-	try
-	{
+	try {
 		key = document.getElementById("keyword").value;
-		
+
 		fetch('/student-lounge/GetAllBooks?keyword=' + key).then(
 				function(response) {
 					return response.text().then(function(text) {
@@ -43,23 +45,17 @@ function getAllBooks() {
 						document.getElementById("allBooks").innerHTML = text;
 					});
 				});
+	} catch (error) {
+		fetch('/student-lounge/GetAllBooks').then(function(response) {
+			return response.text().then(function(text) {
+				console.log(text);
+				document.getElementById("allBooks").innerHTML = text;
+			});
+		});
 	}
-	catch(error)
-	{
-		fetch('/student-lounge/GetAllBooks').then(
-				function(response) {
-					return response.text().then(function(text) {
-						console.log(text);
-						document.getElementById("allBooks").innerHTML = text;
-					});
-				});
-	}
-	
-
 
 }
 
-function imgurl(){
-	
-	
+function imgurl() {
+
 }

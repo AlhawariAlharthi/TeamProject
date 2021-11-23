@@ -210,7 +210,7 @@ img.bookimg {
 
 			<div id="menu2" class="tab-pane fade">
 				<h3>Books Table</h3>
-				<p>Double click the remove button to remove any book.</p>
+				<br>
 
 
 				<a class="btn btn-primary btn-rounded btn-sm my-0"
