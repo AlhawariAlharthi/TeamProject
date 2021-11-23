@@ -120,7 +120,7 @@ body {
 </style>
 <body>
 	<div class="topnav">
-		<a href="./login.html">Log in</a>
+		<a href="./login.jsp">Log in</a>
 		<a href="./booklist.html">Explore</a> <a href="./index.html">Home</a>
 	</div>
 
@@ -137,28 +137,28 @@ body {
 				${wronginput}
 					<div class="form-group">
 						<label>Email</label> <input type="text" class="form-control"
-							placeholder="Email" name="email">
+							placeholder="Email" name="email" required>
 					</div>
 					<div class="form-group">
 						<label>User Name</label> <input type="text" class="form-control"
-							placeholder="User Name" name="username">
+							placeholder="User Name" name="username" required>
 					</div>
 					<div class="form-group">
 						<label>First Name</label> <input type="text" class="form-control"
-							placeholder="First Nmae" name="firtsname">
+							placeholder="First Nmae" name="firtsname" required>
 					</div>
 					<div class="form-group">
 						<label>Last Name</label> <input type="text" class="form-control"
-							placeholder="Last Name" name="lastname">
+							placeholder="Last Name" name="lastname" required>
 					</div>
 					<div class="form-group">
 						<label>Password</label> <input type="password"
-							class="form-control" placeholder="Password" name="password">
+							class="form-control" placeholder="Password" name="password" required>
 					</div>
 					<div class="form-group">
 						<label>Confirm Password</label> <input type="password"
 							class="form-control" placeholder="Re-enter your password"
-							name="repassword">
+							name="repassword" required>
 					</div>
 
 					<a class="btn btn-secondary" href="login.jsp">Log in</a>

@@ -24,9 +24,11 @@ function getBook(id) {
 }
 
 function deleteBook(id) {
+	confirm('Are you sure you want to delete this book?');
 	fetch('/student-lounge/Delete?id=' + id);
 	getBooks();
 }
+
 
 function getAllBooks() {
 	var key;
@@ -55,4 +57,9 @@ function getAllBooks() {
 	
 
 
+}
+
+function imgurl(){
+	
+	
 }

@@ -51,7 +51,6 @@ public class Login extends HttpServlet {
 		try {
 			
 			User user1 = UtilDB.getUsers(username, "email").get(0);
-			//User user2 = UtilDB.getUsers(username, "userName").get(0);
 
 			if ( username.equals(user1.getEmail()) && Hash.hash(password).equals(user1.getPassword())) {
 				HttpSession session = request.getSession();
@@ -59,21 +58,9 @@ public class Login extends HttpServlet {
 				
 				response.sendRedirect("profile.jsp");
 
-			} else if (username.equals("")) {
-				String wronginput = "<div class=\"text-right\" class=\"alert alert-warning\">\r\n"
-						+ "  <strong>Warning!</strong> Please Enter Username!.\r\n" + "</div>";
-				request.setAttribute("wronginput", wronginput);
-				RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
-				rd.forward(request, response);
+			} 
 
-			} else if (password.equals("")) {
-				String wronginput = "<div class=\"alert alert-warning\">\r\n"
-						+ "  <strong>Warning!</strong> Please Enter Password!.\r\n" + "</div>";
-				request.setAttribute("wronginput", wronginput);
-				RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
-				rd.forward(request, response);
-
-			} else {
+			else {
 				String wronginput = "<div class=\"alert alert-warning\">\r\n"
 						+ "  <strong>Warning!</strong> You entered wrong credetionals!.\r\n" + "</div>";
 				request.setAttribute("wronginput", wronginput);

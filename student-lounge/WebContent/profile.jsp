@@ -120,15 +120,7 @@ img.bookimg {
 	<div class="jumbotron text-center">
 		<h1>Student Lounge</h1>
 		<p>Book Sharing</p>
-		<form>
-			<div class="input-group">
-				<input type="text" class="form-control" size="50"
-					placeholder="Search book" required>
-				<div class="input-group-btn">
-					<button type="button" class="btn btn-danger">Search</button>
-				</div>
-			</div>
-		</form>
+		
 	</div>
 	<div class="container" style="width: 90%;">
 	${wronginput}
@@ -220,10 +212,6 @@ img.bookimg {
 				<h3>Books Table</h3>
 				<p>Double click the remove button to remove any book.</p>
 
-				<script>
-					fetchBooks();
-				</script>
-
 
 				<a class="btn btn-primary btn-rounded btn-sm my-0"
 					data-toggle="modal" data-target="#addBookModal"> Add Book </a> <br>
@@ -249,15 +237,17 @@ img.bookimg {
 
 										<div class="form-group">
 											<label for="Fname">Author : </label> <input type="text"
-												class="form-control" name="AUTHOR" value=""> <br> <label
+												class="form-control" name="AUTHOR" value="" required> <br> <label
 												for="Lname">Title : </label> <input type="text"
-												class="form-control" name="TITLE" value=""> <br> <label
+												class="form-control" name="TITLE" value="" required> <br> <label
 												for="JobRole">ISBN : </label> <input type="text"
-												class="form-control" name="ISBN" value=""> <br> <label
+												class="form-control" name="ISBN" value="" required> <br> <label
 												for="Age">Major : </label> <input type="text"
-												class="form-control" name="MAJOR" value=""> <br> <label
+												class="form-control" name="MAJOR" value="" required> <br> <label
 												for="Age">Book Class : </label> <input type="text"
-												class="form-control" name="CLASS" value=""> <br>
+												class="form-control" name="CLASS" value="" required> <br>
+											
+												
 
 											<button type="submit">Add Book</button>
 										</div>

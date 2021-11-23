@@ -159,12 +159,15 @@
                <form  action="Login" method="post">
                   <div class="form-group">
                      <label>Email</label>
-                     <input type="text" class="form-control" placeholder="Email" name="user">
+                     <input type="text" class="form-control" placeholder="Email" name="user" required>
                   </div>
                   <div class="form-group">
                      <label>Password</label>
-                     <input type="password" class="form-control" placeholder="Password" name="pass">
+                     <input type="password" class="form-control" placeholder="Password" name="pass" required>
+                     <br>
+                  <a href="reset.jsp">Forgot password?</a> 
                   </div>
+                  
                   <button type="submit" class="btn btn-black" name ="login">Login</button>
                   <a class="btn btn-secondary" href= "signup.jsp">Sign Up</a>
                </form>

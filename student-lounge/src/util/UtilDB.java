@@ -84,18 +84,17 @@ public class UtilDB {
 
 	public static List<Book> listBooks(String keyword) {
 		List<Book> resultList = new ArrayList<Book>();
-
 		Session session = getSessionFactory().openSession();
 		Transaction tx = null;
-
+		keyword= keyword.toLowerCase();
 		try {
 			tx = session.beginTransaction();
 			System.out.println((Book) session.get(Book.class, 1));
 			List<?> books = session.createQuery("FROM Book").list();
 			for (Iterator<?> iterator = books.iterator(); iterator.hasNext();) {
 				Book book = (Book) iterator.next();
-				if (book.getTitle().contains(keyword) || book.getBookClass().contains(keyword)
-						|| book.getMajor().contains(keyword) || book.getISBN().contains(keyword) || book.getAuthor().contains(keyword)) {
+				if (book.getTitle().toLowerCase().contains(keyword) || book.getBookClass().toLowerCase().contains(keyword)
+						|| book.getMajor().toLowerCase().contains(keyword) || book.getISBN().toLowerCase().contains(keyword) || book.getAuthor().toLowerCase().contains(keyword)) {
 					resultList.add(book);
 				}
 			}

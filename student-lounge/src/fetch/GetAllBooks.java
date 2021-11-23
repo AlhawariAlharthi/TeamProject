@@ -39,7 +39,6 @@ PrintWriter out = response.getWriter();
 
 		String key = request.getParameter("keyword");
 		List<Book> listbooks = null;
-		System.out.println("keyword ==> " + key);
 		
 		if (key.isEmpty())
 		{
