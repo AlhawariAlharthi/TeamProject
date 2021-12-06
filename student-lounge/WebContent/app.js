@@ -8,7 +8,7 @@ function getInfo() {
 }
 
 function getBooks() {
-	fetch('/student-lounge/GetBooksByUser').then(function(response) {
+	fetch('/student-lounge/GetBook?fun=getBooksByUser').then(function(response) {
 		return response.text().then(function(text) {
 			document.getElementById("books").innerHTML = text;
 		});
@@ -16,7 +16,7 @@ function getBooks() {
 }
 
 function getBook(id) {
-	fetch('/student-lounge/GetBook?id=' + id).then(function(response) {
+	fetch('/student-lounge/GetBook?id=' + id + '&fun=getBook').then(function(response) {
 		return response.text().then(function(text) {
 			document.getElementById("book").innerHTML = text;
 		});
@@ -38,7 +38,7 @@ function getAllBooks() {
 	try {
 		key = document.getElementById("keyword").value;
 
-		fetch('/student-lounge/GetAllBooks?keyword=' + key).then(
+		fetch('/student-lounge/GetBook?keyword=' + key + '&fun=getAllBooks').then(
 				function(response) {
 					return response.text().then(function(text) {
 						console.log(text);
@@ -46,7 +46,7 @@ function getAllBooks() {
 					});
 				});
 	} catch (error) {
-		fetch('/student-lounge/GetAllBooks').then(function(response) {
+		fetch('/student-lounge/GetBook' + '&fun=getAllBooks').then(function(response) {
 			return response.text().then(function(text) {
 				console.log(text);
 				document.getElementById("allBooks").innerHTML = text;
