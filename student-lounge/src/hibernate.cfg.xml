@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE hibernate-configuration SYSTEM 
 "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
-
 <hibernate-configuration>
 	<session-factory>
 	    <!-- The dialect specifies the type of database used in hibernate so that hibernate generate appropriate type of SQL statements. -->
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="hibernate.connection.url">jdbc:mysql://ec2-18-223-184-253.us-east-2.compute.amazonaws.com:3306/StudentLounge</property>
-		<property name="hibernate.connection.username">student-loungeremote</property>
+		<property name="hibernate.connection.url">jdbc:mysql://ec2-18-223-184-253.us-east-2.compute.amazonaws.com:3306/StudentLounge?enabledTLSProtocols=TLSv1.2</property>
+		<property name="hibernate.connection.username">remote</property>
 		<property name="hibernate.connection.password">StudentL-1234</property>
 		<!-- you can create and update the table if it is not in DB. If create, it create new table everytime-->
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		<!-- True you will see sql in console -->
-		<property name="show_sql">false</property>
+		<property name="show_sql">true</property>
 		<mapping class="datamodel.Book" />
 		<mapping class="datamodel.User" />
 	</session-factory>
-</hibernate-configuration>
+</hibernate-configuration> 

@@ -30,7 +30,7 @@
 <script
 	src="https://editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js"></script>
 
-<script type="text/javascript" src="HRApp.js"></script>
+<script type="text/javascript" src="app.js"></script>
 
 <style type="text/css">
 </style>
@@ -58,62 +58,101 @@
 	background-color: #FFFFFF;
 	color: black;
 }
+
+.card-horizontal {
+	display: flex;
+	flex: 1 1 auto;
+}
+
+img.bookimg {
+	hight: 300px;
+	width: 150px;
+	margin-right: 5px;
+}
+
+.column {
+	float: left;
+	width: 50%;
+	padding: 0 10px;
+}
+
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.row {
+	width: 90%;
+	margin: auto;
+	margin-bottom: 20px;
+}
+
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	padding: 10px;
+	border: 3px solid;
+	border-radius: 5px;
+	background-color: #f1f1f1;
+}
 </style>
 </head>
 <body>
-	
+
 
 	<%
 		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 		response.setHeader("Pragma", "no-cache");
 		response.setHeader("Expires", "0");
-		if (session.getAttribute("username") == null) {
+		if (session.getAttribute("email") == null) {
 			response.sendRedirect("index.html");
 		}
 	%>
 	<div class="topnav">
 
-		<a href="./booklist.html">Explore</a> <a href="./index.html">Home</a>
-		<a href="./Logout">Logout</a>
-		
+		<a href="./Logout">Logout</a> <a href="./booklist.html">Explore</a> <a
+			href="./index.html">Home</a>
+
+
 	</div>
 
 
 	<div class="jumbotron text-center">
 		<h1>Student Lounge</h1>
 		<p>Book Sharing</p>
-		<form>
-			<div class="input-group">
-				<input type="text" class="form-control" size="50"
-					placeholder="Search book" required>
-				<div class="input-group-btn">
-					<button type="button" class="btn btn-danger">Search</button>
-				</div>
-			</div>
-		</form>
+		
 	</div>
 	<div class="container" style="width: 90%;">
+	${wronginput}
 		<ul class="nav nav-tabs">
+			<li><a data-toggle="tab" href="#menu3">Profile
+					Info</a></li>
 			<li><a data-toggle="tab" href="#menu2">Manage Books</a></li>
 			<li><a data-toggle="tab" href="#menu1">Settings</a></li>
 
-
-			<li>
-				<form action="Logout">
-					<button type="submit">Logout</button>
-				</form>
-			</li>
 		</ul>
 
 		<div class="tab-content">
+
+
+			<div id="menu3" class="tab-pane fade">
+				<h3>Profile Information</h3>
+				<script>
+					getInfo();
+				</script>
+				
+				<div id="info"></div>
+				
+			</div>
+
 			<div id="menu1" class="tab-pane fade">
 				<h3>Change Password</h3>
 
 				<div class="container">
 
-					<form action="ChangePass" method="post">
+					<form action="EditUser" method="post">
 
-						<div class="input-group">
+						<div class="input-group" style="margin-bottom: 10px;">
 							<span class="input-group-addon"><i
 								class="glyphicon glyphicon-lock"></i></span> <input id="password"
 								type="password" class="form-control" name="pass"
@@ -127,7 +166,42 @@
 						</div>
 						<br>
 						<div class="input-group">
-							<input type="submit" value="Change Password">
+							<input name="changePassword" type="submit"
+								value="Change Password">
+						</div>
+					</form>
+				</div>
+				<h3>Change Email</h3>
+				<div class="container">
+
+					<form action="EditUser" method="post">
+
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-lock"></i></span> <input
+								class="form-control" name="email" placeholder="New Email"
+								type="email">
+						</div>
+						<br>
+						<div class="input-group">
+							<input name="changeEmail" type="submit" value="Change Email">
+						</div>
+					</form>
+				</div>
+				<h3>Change User Name</h3>
+				<div class="container" style="margin-bottom: 50px;">
+
+					<form action="EditUser" method="post">
+
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-lock"></i></span> <input
+								class="form-control" name="username" placeholder="New UserName">
+						</div>
+						<br>
+						<div class="input-group">
+							<input name="changeUserName" type="submit"
+								value="Change UserName">
 						</div>
 					</form>
 				</div>
@@ -136,11 +210,7 @@
 
 			<div id="menu2" class="tab-pane fade">
 				<h3>Books Table</h3>
-				<p>Double click the remove button to remove any book.</p>
-
-				<script>
-					fetchBooks();
-				</script>
+				<br>
 
 
 				<a class="btn btn-primary btn-rounded btn-sm my-0"
@@ -165,22 +235,24 @@
 									<form class="form-horizontal" action="AddBook" method="post">
 
 
-									<div class="form-group">
-										<label for="Fname">Author : </label> <input type="text"
-											class="form-control" name="AUTHOR"> <br> <label
-											for="Lname">Title : </label> <input type="text"
-											class="form-control" name="TITLE"> <br> <label
-											for="JobRole">ISBN : </label> <input type="text"
-											class="form-control" name="ISBN"> <br> <label
-											for="Age">Major : </label> <input type="text"
-											class="form-control" name="MAJOR"> <br> <label
-											for="Age">Book Class : </label> <input type="text"
-											class="form-control" name="CLASS"> <br>
+										<div class="form-group">
+											<label for="Fname">Author : </label> <input type="text"
+												class="form-control" name="AUTHOR" value="" required> <br> <label
+												for="Lname">Title : </label> <input type="text"
+												class="form-control" name="TITLE" value="" required> <br> <label
+												for="JobRole">ISBN : </label> <input type="text"
+												class="form-control" name="ISBN" value="" required> <br> <label
+												for="Age">Major : </label> <input type="text"
+												class="form-control" name="MAJOR" value="" required> <br> <label
+												for="Age">Book Class : </label> <input type="text"
+												class="form-control" name="CLASS" value="" required> <br>
+											
+												
 
 											<button type="submit">Add Book</button>
 										</div>
 									</form>
-
+									
 								</div>
 							</div>
 							<div class="modal-footer">
@@ -192,8 +264,15 @@
 					</div>
 				</div>
 
+
+				<!-- Books card -->
+					<script>
+					getBooks();
+				</script>
+				<div id="books"></div>
+				
 				<!-- Modal -->
-				<div class="modal fade" id="myModal" role="dialog">
+				<div class="modal fade" id="EditModal" role="dialog">
 					<div class="modal-dialog">
 
 						<!-- Modal content-->
@@ -203,7 +282,7 @@
 								<h4 class="modal-title">Edit Book</h4>
 							</div>
 							<div class="modal-body">
-								<div id="add_to_me"></div>
+								<div id="book"></div>
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default"

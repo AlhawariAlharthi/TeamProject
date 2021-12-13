@@ -8,19 +8,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import util.UtilDB;;
+import util.UtilDB;
 
 /**
- * Servlet implementation class AddBook
+ * Servlet implementation class EditBook
  */
-@WebServlet("/AddBook")
-public class AddBook extends HttpServlet {
+@WebServlet("/EditBook")
+public class EditBook extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddBook() {
+    public EditBook() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,20 +31,26 @@ public class AddBook extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String author = request.getParameter("AUTHOR");
-		String title = request.getParameter("TITLE");
-		String iSBN = request.getParameter("ISBN");
-		String major = request.getParameter("MAJOR");
-		String bookClass = request.getParameter("CLASS");
 		
 		HttpSession session = request.getSession();
-		String uploader = session.getAttribute("email").toString();
+		String emailS = session.getAttribute("email").toString();
 		
-		UtilDB.createBooks(title, author, iSBN, uploader, major, bookClass);
+		
+		String author = request.getParameter("AUTHOR");
+		String title = request.getParameter("TITLE");
+		String isbn = request.getParameter("ISBN");
+		
+		String major = request.getParameter("MAJOR");
+		String bookClass = request.getParameter("CLASS");
+		String id = request.getParameter("id");
+		
+		UtilDB.editBook("id", id, author, "AUTHOR");
+		UtilDB.editBook("id", id, title, "TITLE");
+		UtilDB.editBook("id", id, isbn, "ISBN");
+		UtilDB.editBook("id", id, major, "MAJOR");
+		UtilDB.editBook("id", id, bookClass, "BookClass");
 		
 		response.sendRedirect("profile.jsp");
-		
-		
 	}
 
 }

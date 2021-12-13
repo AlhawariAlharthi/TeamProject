@@ -1,6 +1,7 @@
 package authentication;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import datamodel.User;
+import util.Hash;
+import util.UtilDB;
 
 /**
  * Servlet implementation class login
@@ -44,28 +49,18 @@ public class Login extends HttpServlet {
 		String password = request.getParameter("pass");
 
 		try {
+			
+			User user1 = UtilDB.getUsers(username, "email").get(0);
 
-			if (username.equals("a@a.a") && password.equals("a")) {
+			if ( username.equals(user1.getEmail()) && Hash.hash(password).equals(user1.getPassword())) {
 				HttpSession session = request.getSession();
-				session.setAttribute("username", username);
+				session.setAttribute("email", username);
 				
 				response.sendRedirect("profile.jsp");
 
-			} else if (username.equals("")) {
-				String wronginput = "<div class=\"text-right\" class=\"alert alert-warning\">\r\n"
-						+ "  <strong>Warning!</strong> Please Enter Username!.\r\n" + "</div>";
-				request.setAttribute("wronginput", wronginput);
-				RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
-				rd.forward(request, response);
+			} 
 
-			} else if (password.equals("")) {
-				String wronginput = "<div class=\"alert alert-warning\">\r\n"
-						+ "  <strong>Warning!</strong> Please Enter Password!.\r\n" + "</div>";
-				request.setAttribute("wronginput", wronginput);
-				RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
-				rd.forward(request, response);
-
-			} else {
+			else {
 				String wronginput = "<div class=\"alert alert-warning\">\r\n"
 						+ "  <strong>Warning!</strong> You entered wrong credetionals!.\r\n" + "</div>";
 				request.setAttribute("wronginput", wronginput);
