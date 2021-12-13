@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="homeStyle.css">
 <meta charset="ISO-8859-1">
 <meta charset="ISO-8859-1">
-<title>Login</title>
+<title>Reset</title>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -44,7 +44,7 @@
 <body>
 
 	<div class="topnav">
-  
+  <a href="./login.jsp">Login</a>
   <a href="./signup.jsp">Sign up</a>
   <a href="./booklist.html">Explore</a>
   <a href="./index.html">Home</a>
