@@ -19,7 +19,7 @@ public class SignUp {
   JavascriptExecutor js;
   @Before
   public void setUp() throws Exception {
-    System.setProperty("webdriver.chrome.driver", "");
+    System.setProperty("webdriver.chrome.driver", "D:\\chrome\\chromedriver_win32\\chromedriver.exe");
     driver = new ChromeDriver();
     baseUrl = "https://www.google.com/";
     driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
@@ -29,22 +29,22 @@ public class SignUp {
   @Test
   public void testUntitledTestCase() throws Exception {
     driver.get("http://ec2-18-223-184-253.us-east-2.compute.amazonaws.com:8080/student-lounge/index.html");
-    driver.findElement(By.linkText("Sign up")).click();
-    driver.findElement(By.name("email")).click();
-    driver.findElement(By.name("email")).clear();
-    driver.findElement(By.name("email")).sendKeys("test@gmail.com");
-    driver.findElement(By.name("username")).clear();
-    driver.findElement(By.name("username")).sendKeys("test");
-    driver.findElement(By.name("firtsname")).clear();
-    driver.findElement(By.name("firtsname")).sendKeys("test");
-    driver.findElement(By.name("lastname")).clear();
-    driver.findElement(By.name("lastname")).sendKeys("one");
-    driver.findElement(By.name("password")).clear();
-    driver.findElement(By.name("password")).sendKeys("Test@1234");
-    driver.findElement(By.name("repassword")).clear();
-    driver.findElement(By.name("repassword")).sendKeys("Test@1234");
-    driver.findElement(By.name("signup")).click();
-    driver.findElement(By.name("email")).click();
+//    driver.findElement(By.linkText("Sign up")).click();
+//    driver.findElement(By.name("email")).click();
+//    driver.findElement(By.name("email")).clear();
+//    driver.findElement(By.name("email")).sendKeys("test1@gmail.com");
+//    driver.findElement(By.name("username")).clear();
+//    driver.findElement(By.name("username")).sendKeys("test1");
+//    driver.findElement(By.name("firtsname")).clear();
+//    driver.findElement(By.name("firtsname")).sendKeys("test1");
+//    driver.findElement(By.name("lastname")).clear();
+//    driver.findElement(By.name("lastname")).sendKeys("one1");
+//    driver.findElement(By.name("password")).clear();
+//    driver.findElement(By.name("password")).sendKeys("Test1@1234");
+//    driver.findElement(By.name("repassword")).clear();
+//    driver.findElement(By.name("repassword")).sendKeys("Test1@1234");
+//    driver.findElement(By.name("signup")).click();
+//    driver.findElement(By.name("email")).click();
     driver.findElement(By.linkText("Sign up")).click();
     driver.findElement(By.name("email")).click();
     driver.findElement(By.name("email")).clear();
